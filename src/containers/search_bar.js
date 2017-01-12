@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { videoSearch } from '../actions/index';
+import { videoSearch } from '../actions/action_video_search';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class SearchBar extends Component {
     return (
       <form onSubmit={this.onFormSubmit} className="input-group">
         <input
-          placeholder="Get a five-day forcast in your favorite citites"
+          placeholder="Search for awesome videos!"
           className="form-control"
           value={this.state.term}
           onChange={this.onInputChange}

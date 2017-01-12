@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import YTSearch from 'youtube-api-search';
-
-const API_KEY = 'AIzaSyBshkLdJ30M0o9GduqxQ-oSqj2OpFBDFFk';
+import { selectVideo } from '../actions/action_video_detail';
+import { bindActionCreators } from 'redux';
 
 class VideoList extends Component {
-  renderVideos(video) {
-
-    return (
-      <li key={video.etag} className="list-group-item">
-        {video.snippet.title}
-      </li>
-    );
+  renderVideos() {
+    return this.props.videos.map((video) => {
+      return (
+        <li
+          onClick={() => this.props.selectVideo(video)}
+          key={video.etag}
+          className="list-group-item">{video.snippet.title}
+        </li>
+      );
+    });
   }
 
   render() {
     return (
       <ul className="col-md-4 list-group">
-        {this.props.videos.map(this.renderVideos)}
+        {this.renderVideos()}
       </ul>
     );
   }
@@ -27,4 +29,8 @@ function mapStateToProps(state) {
   return { videos: state.videos };
 }
 
-export default connect(mapStateToProps)(VideoList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ selectVideo: selectVideo }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideoList);

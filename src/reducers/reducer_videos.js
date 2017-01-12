@@ -1,4 +1,4 @@
-import { VIDEO_SEARCH } from '../actions/index';
+import { VIDEO_SEARCH } from '../actions/action_video_search';
 
 export default function(state = [], action) {
   switch (action.type) {
