@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectVideo } from '../actions/action_video_detail';
+import { selectVideo } from '../actions/action_select_video';
 import { bindActionCreators } from 'redux';
 
 class VideoList extends Component {
@@ -10,7 +10,16 @@ class VideoList extends Component {
         <li
           onClick={() => this.props.selectVideo(video)}
           key={video.etag}
-          className="list-group-item">{video.snippet.title}
+          className="list-group-item video-list-item"
+        >
+          <div className="video-list media">
+            <div className="media-left">
+              <img className="media-object img-rounded" src={video.snippet.thumbnails.default.url} />
+            </div>
+            <div className="media-body">
+              <div className="media-heading">{video.snippet.title}</div>
+            </div>
+          </div>
         </li>
       );
     });

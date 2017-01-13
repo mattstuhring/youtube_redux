@@ -1,0 +1,26 @@
+.navbar-brand {
+  padding: 3px 5px !important;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.yt-logo {
+  background-image: url('./yt_logo.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 43rem;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.video-detail {
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.video-list-item {
+  margin: 5px 0px !important;
+  cursor: pointer;
+}

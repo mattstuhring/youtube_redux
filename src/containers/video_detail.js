@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { videoSearch } from '../actions/action_video_search';
+import { selectVideo } from '../actions/action_select_video';
 
 class VideoDetail extends Component {
-  constructor(props) {
-    super(props);
-
-    this.props.videoSearch();
-  }
-
   render() {
-    console.log(this.props.videos, 'videos');
+    console.log(this.props.videos, 'video detail');
+
     if (!this.props.video) {
-      return <div className="col-md-8">Start by searching for a video.</div>;
+      return (
+        <div className="col-md-8">
+          <div className="yt-logo"></div>
+        </div>
+      );
     }
 
     const videoId = this.props.video.id.videoId;
@@ -24,9 +23,9 @@ class VideoDetail extends Component {
         <div className="embed-responsive embed-responsive-16by9">
           <iframe className="embed-responsive-item" src={url} frameBorder="0" allowFullScreen></iframe>
         </div>
-        <div>
-          <div>{this.props.video.snippet.title}</div>
-          <div>{this.props.video.snippet.description}</div>
+        <div className="video-detail">
+          <h4>Title: {this.props.video.snippet.title}</h4>
+          <p>Description: {this.props.video.snippet.description}</p>
         </div>
       </div>
     );
@@ -41,7 +40,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ videoSearch }, dispatch);
+  return bindActionCreators({ selectVideo }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoDetail);
