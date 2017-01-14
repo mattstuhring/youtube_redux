@@ -1,5 +1,18 @@
+body {
+  font-family: 'PT Sans', sans-serif !important;
+}
+
 .navbar-brand {
-  padding: 3px 5px !important;
+  padding: 3px 13px !important;
+}
+
+.navbar-text {
+  margin-right: 13px !important;
+  color: black !important;
+  font-size: 26px !important;
+  margin-top: 3px !important;
+  margin-bottom: 10px !important;
+  font-family: 'Knewave', cursive !important;
 }
 
 .search-bar {

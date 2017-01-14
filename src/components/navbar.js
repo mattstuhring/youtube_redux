@@ -10,6 +10,7 @@ const Navbar = () => {
             <img alt="Brand" src="../style/icon.png" />
           </a>
         </div>
+        <p className="navbar-text navbar-right">Search & Watch</p>
       </div>
     </nav>
   );
